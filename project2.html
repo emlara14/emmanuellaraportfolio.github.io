@@ -1,45 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Kevin Koivu's Portfolio</title>
-    <meta name="description" content="The details on Project 1">
-    <link rel="stylesheet" href="css/styles.css">
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <title>Emmanuel Lara's Portfolio - Project 2</title>
+ <meta name="description" content="Technical details on Project 2: Feasibility Analysis of a Server Virtualization Project">
+ <link rel="stylesheet" href="css/styles.css">
+ <style>
+    /* Side-by-side container layout reversed */
+    .project-flex-container {
+        display: flex;
+        flex-direction: row; /* Default layout */
+        gap: 20px;
+        align-items: stretch;
+        margin-top: 20px;
+    }
+
+    /* Image box on the LEFT */
+    .visual-box {
+        flex: 1;
+        background-color: rgba(255, 255, 255, 0.05);
+        border: 1px solid #444;
+        border-radius: 8px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        order: 1; /* Ensures it stays on the left */
+    }
+
+    /* Description box on the RIGHT */
+    .description-box {
+        flex: 1.5;
+        background-color: rgba(255, 255, 255, 0.05);
+        padding: 20px;
+        border: 1px solid #444;
+        border-radius: 8px;
+        order: 2; /* Ensures it stays on the right */
+    }
+
+    .description-box h2 {
+        margin-top: 0;
+        font-size: 1.4rem;
+    }
+
+    .description-box p, .description-box li {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .visual-box img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 4px;
+    }
+
+    .visual-box span {
+        margin-top: 10px;
+        font-size: 0.8rem;
+        color: #888;
+    }
+ </style>
 </head>
 
-<body class="space2-bg">
-    <header>
-        <h1>Kevin Koivu's Portfolio - Project 2</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="project1.html" aria-current="page">Project 1</a></li>
-                <li><a href="project2.html">Project 2</a></li>
-            </ul>
-        </nav>
-    </header>
+<body class="space1-bg">
+ <header>
+     <h1>Emmanuel Lara's Portfolio - Project 2</h1>
+  <nav>
+   <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="project1.html">Project 1</a></li>
+    <li><a href="project2.html" aria-current="page">Project 2</a></li>
+    <li><a href="project4.html">Project 4</a></li>
+   </ul>
+  </nav>
+ </header>
 
-    <main>
-        <article>
-            <div class="content-box">
-                <h1><u>Project 2: Jobcord Discord Bot</u></h1>
-                <br />
-                <h3>
-                    For this project, I placed in a group and tasked with creating a web-based project. For this, we decided on a Discord Bot to assist the user in finding a Job.
-                    The responsibility I was given was to create the database behind the bot, while the others in my group worked on the commands and discord integration.
-                    The goal of the class was just to make a mock-up of what the actual bot would be, but we took it one step further and got it to respond to commands that would draw from my database, sourcing the jobs off of a scraper working with Linkedin.
-                </h3>
-            </div>
-        </article>
-        <br />
-        <div class="image-box">
-            <img src="/Images/Jobcord.png" width="1000">
+<main>
+    <div class="project-flex-container">
+        <div class="visual-box">
+            <img src="/Images/Project2_Analysis.png" alt="Cost-Benefit Analysis Spreadsheet Overview">
+            <span>[Financial Feasibility Spreadsheets]</span>
         </div>
 
-    </main>
+        <article class="description-box">
+            <h2><u>Project 2: Feasibility Analysis of Server Virtualization</u></h2>
+            <p>
+                In this project, I acted as a System Administrator for a fictitious organization, HostPenny, to conduct a comprehensive financial cost-benefit analysis for a large-scale server virtualization initiative[cite: 773, 786, 799].
+            </p>
+            
+            <ul>
+                <li><strong>Current State Assessment:</strong> I analyzed the operational costs of 20,000 physical servers divided into four functional groups, calculating energy consumption in kWH based on average CPU loads and power rates[cite: 804, 806, 829].</li>
+                <br />
+                <li><strong>Consolidation Strategy:</strong> I proposed a 10.2:1 physical consolidation ratio, reducing the hardware footprint to 1,960 high-performance Sun X9-2L servers capable of supporting 3,830 virtual machines[cite: 910, 912, 913].</li>
+                <br />
+                <li><strong>Financial Projections:</strong> I developed a 5-year financial projection including hard costs (server purchase, maintenance, and software licenses) and soft costs (administrative effort and backup labor)[cite: 788, 971, 1219, 1222].</li>
+                <br />
+                <li><strong>Dynamic Modeling:</strong> I constructed a series of interconnected spreadsheets using shared variables to ensure the feasibility study remained flexible and free of hard-coded numerical values[cite: 1256, 1258, 1260].</li>
+            </ul>
+        </article>
+    </div>
+</main>
 </body>
 </html>
-
-
-
