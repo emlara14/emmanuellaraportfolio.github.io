@@ -15,16 +15,16 @@ body {
 }
 
 body.ucf-bg {
-    background-image: url("/Images/UCF-Background.jpg");
+    background-image: url("../Images/UCF-Background.jpg");
 }
 
-    body.space1-bg {
-        background-image: url("/Images/space-background2.jpg");
-    }
+body.space1-bg {
+    background-image: url("../Images/space-background2.jpg");
+}
 
-    body.space2-bg {
-        background-image: url("/Images/space-background3.jpg");
-    }
+body.space2-bg {
+    background-image: url("../Images/space-background3.jpg");
+}
 
 header {
     background: rgba(0, 0, 0, 0.7);
