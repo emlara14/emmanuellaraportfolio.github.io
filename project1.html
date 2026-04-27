@@ -3,19 +3,20 @@
 <head>
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1">
- <title>Kevin Koivu's Portfolio</title>
- <meta name="description" content="The details on Project 1">
+ <title>Emmanuel Lara's Portfolio - Project 1</title>
+ <meta name="description" content="Technical details on Project 4: Three-Tier Distributed Web Application">
  <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body class="space1-bg">
  <header>
-     <h1>Kevin Koivu's Portfolio - Project 1</h1>
+     <h1>Emmanuel Lara's Portfolio - Project 1</h1>
   <nav>
    <ul>
     <li><a href="index.html">Home</a></li>
-    <li><a href="project1.html" aria-current="page">Project 1</a></li>
+    <li><a href="project1.html">Project 1</a></li>
     <li><a href="project2.html">Project 2</a></li>
+    <li><a href="project4.html" aria-current="page">Project 4</a></li>
    </ul>
   </nav>
  </header>
@@ -23,25 +24,31 @@
 <main>
     <article>
         <div class="content-box">
-            <h1><u>Project 1: Pet Daycare Database</u></h1>
+            <h1><u>Project 1: Three-Tier Distributed Web-Based Application</u></h1>
             <br />
             <h3>
-                For this project, I was tasked with creating an entire database for a Pet Daycare.
-                This involved creating many tables to cross-reference information about pet Names, IDs, Breeds, and all sorts of other information.
-                Along with that, the database also kept track of the employees working at the daycare, including names, positions, addresses, zip codes, phone numbers, emails, hourly rates, and a schedule.
-                Below you can see the structure of the table, with the connections between them being the linked values.
+                For this project, I developed a sophisticated three-tier distributed web application designed to manage a complex suppliers/parts/jobs/shipments database[cite: 2, 4, 5]. 
+                The application utilizes a modular architecture to separate the user interface, server-side logic, and persistent data storage.
+                <br /><br />
+                Key technical implementations included:
+                <ul>
+                    <li><strong>First-Tier (Front-End):</strong> Developed dynamic JSP and HTML landing pages to provide user authentication and distinct interfaces for Root, Client, and Accountant-level users[cite: 14, 21, 24, 25].</li>
+                    <br />
+                    <li><strong>Second-Tier (Application Logic):</strong> Utilized Java Servlets running on a Tomcat container to process arbitrary SQL commands and implement complex server-side business logic[cite: 4, 37, 40]. This tier handles automatic supplier status increments based on shipment quantities without relying on database triggers[cite: 39, 41, 65].</li>
+                    <br />
+                    <li><strong>Third-Tier (Back-End):</strong> Managed a persistent MySQL database with enforced referential integrity and foreign key constraints[cite: 10, 49]. I also implemented remote stored procedures accessed via the CallableStatement interface for specialized accountant reports[cite: 30, 47, 48].</li>
+                    <br />
+                    <li><strong>Secure Connectivity:</strong> Managed database connections through properties files to ensure secure, credential-based access for different user privilege levels[cite: 32, 33, 82].</li>
+                </ul>
             </h3>
         </div>
     </article>
     <br />
-        <div class="image-box">
-            <img src="/Images/Database.png" width="1000">
-        </div>
+    
+    <div class="image-box">
+        <img src="/Images/Project4_Schematic.png" alt="Schematic Overview of Project 4 Components" width="1000">
+            </div>
 
 </main>
 </body>
 </html>
-
-
-
-
