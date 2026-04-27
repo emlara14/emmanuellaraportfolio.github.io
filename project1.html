@@ -3,14 +3,67 @@
 <head>
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1">
- <title>Emmanuel Lara's Portfolio - Project 1</title>
+ <title>Emmanuel Lara's Portfolio - Project 4</title>
  <meta name="description" content="Technical details on Project 4: Three-Tier Distributed Web Application">
  <link rel="stylesheet" href="css/styles.css">
+ <style>
+    /* Side-by-side container layout */
+    .project-flex-container {
+        display: flex;
+        gap: 20px;
+        align-items: stretch;
+        margin-top: 20px;
+    }
+
+    /* Description box with smaller text */
+    .description-box {
+        flex: 1.5;
+        background-color: rgba(255, 255, 255, 0.05);
+        padding: 20px;
+        border: 1px solid #444;
+        border-radius: 8px;
+    }
+
+    .description-box h2 {
+        margin-top: 0;
+        font-size: 1.4rem;
+    }
+
+    .description-box p, .description-box li {
+        font-size: 0.9rem; /* Smaller text size */
+        line-height: 1.5;
+    }
+
+    /* Image box to the right */
+    .visual-box {
+        flex: 1;
+        background-color: rgba(255, 255, 255, 0.05);
+        border: 1px solid #444;
+        border-radius: 8px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .visual-box img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 4px;
+    }
+
+    .visual-box span {
+        margin-top: 10px;
+        font-size: 0.8rem;
+        color: #888;
+    }
+ </style>
 </head>
 
 <body class="space1-bg">
  <header>
-     <h1>Emmanuel Lara's Portfolio - Project 1</h1>
+     <h1>Emmanuel Lara's Portfolio - Project 4</h1>
   <nav>
    <ul>
     <li><a href="index.html">Home</a></li>
@@ -22,33 +75,29 @@
  </header>
 
 <main>
-    <article>
-        <div class="content-box">
-            <h1><u>Project 1: Three-Tier Distributed Web-Based Application</u></h1>
-            <br />
-            <h3>
-                For this project, I developed a sophisticated three-tier distributed web application designed to manage a complex suppliers/parts/jobs/shipments database[cite: 2, 4, 5]. 
-                The application utilizes a modular architecture to separate the user interface, server-side logic, and persistent data storage.
-                <br /><br />
-                Key technical implementations included:
-                <ul>
-                    <li><strong>First-Tier (Front-End):</strong> Developed dynamic JSP and HTML landing pages to provide user authentication and distinct interfaces for Root, Client, and Accountant-level users[cite: 14, 21, 24, 25].</li>
-                    <br />
-                    <li><strong>Second-Tier (Application Logic):</strong> Utilized Java Servlets running on a Tomcat container to process arbitrary SQL commands and implement complex server-side business logic[cite: 4, 37, 40]. This tier handles automatic supplier status increments based on shipment quantities without relying on database triggers[cite: 39, 41, 65].</li>
-                    <br />
-                    <li><strong>Third-Tier (Back-End):</strong> Managed a persistent MySQL database with enforced referential integrity and foreign key constraints[cite: 10, 49]. I also implemented remote stored procedures accessed via the CallableStatement interface for specialized accountant reports[cite: 30, 47, 48].</li>
-                    <br />
-                    <li><strong>Secure Connectivity:</strong> Managed database connections through properties files to ensure secure, credential-based access for different user privilege levels[cite: 32, 33, 82].</li>
-                </ul>
-            </h3>
-        </div>
-    </article>
-    <br />
-    
-    <div class="image-box">
-        <img src="/Images/Project4_Schematic.png" alt="Schematic Overview of Project 4 Components" width="1000">
-            </div>
+    <div class="project-flex-container">
+        <article class="description-box">
+            <h2><u>Project 4: Three-Tier Distributed Web-Based Application</u></h2>
+            <p>
+                I developed a distributed three-tier web application using Java servlets and JSP technology running on a Tomcat container to maintain a persistent MySQL database[cite: 4, 164].
+            </p>
+            
+            <ul>
+                <li><strong>Multi-Level Authentication:</strong> An HTML landing page facilitates user authentication via a servlet that validates credentials against a dedicated MySQL <code>credentialsDB</code>[cite: 14, 15, 17]. Users are redirected to specific interfaces for root, client, or accountant roles[cite: 20, 21, 24].</li>
+                <br />
+                <li><strong>Logic & SQL Interface:</strong> Second-tier servlets handle arbitrary SQL processing for root and client users[cite: 37, 43]. I implemented server-side business logic to automatically increment supplier status by 5 when shipment quantities reach 100 or more, specifically without using database triggers[cite: 39, 41, 65].</li>
+                <br />
+                <li><strong>Data & Reports:</strong> The backend MySQL DBMS enforces referential integrity for shipment records[cite: 10, 12, 49]. Accountant-level reports are generated by executing remote stored procedures via the <code>CallableStatement</code> interface[cite: 30, 47, 48].</li>
+                <br />
+                <li><strong>Secure Access:</strong> Database connections are managed through properties files to ensure distinct credential-based access for root, client, and accountant privilege levels[cite: 32, 33, 34].</li>
+            </ul>
+        </article>
 
+        <div class="visual-box">
+            <img src="/Images/Project4_Schematic.png" alt="Three-tier architecture diagram of Project 4">
+            <span>[Schematic Overview of Project Components [cite: 143]]</span>
+        </div>
+    </div>
 </main>
 </body>
 </html>
