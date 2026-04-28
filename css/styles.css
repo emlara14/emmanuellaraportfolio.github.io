@@ -26,6 +26,10 @@ body.space2-bg {
     background-image: url("../Images/space-background3.jpg");
 }
 
+body.melbourne-bg {
+    background-image: url("../Images/melbourne.jpg");
+}
+
 header {
     background: rgba(0, 0, 0, 0.7);
     color: #ffffff;
