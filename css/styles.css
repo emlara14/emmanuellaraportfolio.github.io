@@ -1,153 +1,165 @@
 * {
- margin: 0;
- padding: 0;
- box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    line-height 2;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    color: #333
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 2.2; /* Increased for better readability with larger text */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: #333;
+  font-size: 1.2rem; /* Globally increased text size */
 }
 
 body.ucf-bg {
-    background-image: url("../Images/UCF-Background.jpg");
+  background-image: url("../Images/UCF-Background.jpg");
 }
 
 body.space1-bg {
-    background-image: url("../Images/windowsbliss.jpg");
+  background-image: url("../Images/windowsbliss.jpg");
 }
 
 body.space2-bg {
-    background-image: url("../Images/space-background3.jpg");
+  background-image: url("../Images/space-background3.jpg");
 }
 
 body.melbourne-bg {
-    background-image: url("../Images/melbourne.jpg");
+  background-image: url("../Images/melbourne.jpg");
 }
 
 header {
-    background: rgba(0, 0, 0, 0.7);
-    color: #ffffff;
-    text-align: center;
-    padding: 1rem;
+  background: rgba(0, 0, 0, 0.7);
+  color: #ffffff;
+  text-align: center;
+  padding: 1.5rem;
 }
 
 h1 {
-    font-size: 2rem;
+  font-size: 2.5rem; /* Increased size */
 }
 
 .subtitle {
-    font-size: 1rem;
+  font-size: 1.2rem; /* Increased size */
 }
 
-nav ul{
- list-style: none;
- display: flex;
- justify-content: center;
- gap: 2rem;
- margin-top: 0.5rem;
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 0.5rem;
 }
 
 nav a {
- color: #fff;
- text-decoration: none;
- font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 nav a:hover {
- text-decoration: underline;
+  text-decoration: underline;
 }
 
-main{
- display: flex;
- flex-direction: column;
- justify-content: center;
- align-items: center;
- min-height: 90vh;
- padding: 1rem;
- margin: 0 auto;
-}
-
-main.vertical {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  padding: 2rem;
+  margin: 0 auto;
 }
 
 main.horizontal {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1600px;
+  gap: 2rem;
 }
 
 article {
-    color: #ffffff;
-    max-width: 700px;
-    margin: 0 auto 1rem auto;
+  color: #ffffff;
+  max-width: 800px;
+  margin: 0 auto 1rem auto;
 }
 
 aside {
-    background: rgba(0, 0, 0, 0.7);
-    color: #ffffff;
-    padding: 1.5rem;
-    max-width: 600px;
-    margin: 0 auto;
-    border-radius: 1rem;
-    text-align: left;
+  background: rgba(0, 0, 0, 0.8); /* Slightly darker for better contrast */
+  color: #ffffff;
+  padding: 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+  border-radius: 1rem;
+  text-align: left;
 }
 
-aside ul{
-    list-style-position: inside;
-    padding-left: 0;
-    margin: 0.5rem 0;
+aside ul {
+  list-style-position: inside;
+  padding-left: 0;
+  margin: 0.5rem 0;
 }
 
 footer {
-    background: rgba(0, 0, 0, 0.7);
-    color: #ffffff;
-    text-align: center;
-    padding: .5rem;
-    margin-top: .5rem;
+  background: rgba(0, 0, 0, 0.7);
+  color: #ffffff;
+  text-align: center;
+  padding: .5rem;
+  margin-top: .5rem;
 }
 
 img {
- max-width: 100%;
- height: auto;
- border-radius: 10px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Specific class for company logos */
+.company-logo {
+  width: 110px !important; /* Increased size */
+  height: auto;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+/* White box container for specific logos to prevent blending */
+.logo-background-box {
+  background-color: #ffffff;
+  padding: 10px;
+  border-radius: 8px;
+  display: inline-block;
+  margin-bottom: 10px;
 }
 
 .content-box {
- background-color: rgba(0, 0, 0, 0.7);
- padding: 1rem;
- border-radius: 10px;
- max-width: 600px;
- margin: 0rem auto;
- text-align: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 1.5rem;
+  border-radius: 10px;
+  max-width: 700px;
+  margin: 0rem auto;
+  text-align: center;
 }
 
 .align {
-    text-align: center;
-    align-content: center;
+  text-align: center;
+  align-content: center;
 }
 
 .image-box {
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 1rem;
-    border-radius: 10px;
-    margin: 0rem auto;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 1rem;
+  border-radius: 10px;
+  margin: 0rem auto;
+  display: inline-block;
 }
 
 .linkedin-logo {
-    width: 40px;
-    height: auto;
-
+  width: 50px;
+  height: auto;
 }
-
-
