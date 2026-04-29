@@ -1,102 +1,279 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="utf-8">
- <meta name="viewport" content="width=device-width, initial-scale=1">
- <title>Emmanuel Lara's Portfolio - Project 4</title>
- <meta name="description" content="Technical details on Project 4: Three-Tier Distributed Web Application">
- <link rel="stylesheet" href="css/styles.css">
- <style>
-    /* Side-by-side container layout */
-    .project-flex-container {
-        display: flex;
-        gap: 20px;
-        align-items: stretch;
-        margin-top: 20px;
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Emmanuel Lara's Portfolio | Project 1</title>
+  <meta name="description" content="Project 1: Three-Tier Distributed Web Application">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --gold:    #c9a84c;
+      --gold-lt: #e8c96d;
+      --card-bg: rgba(12, 12, 18, 0.82);
+      --border:  rgba(201, 168, 76, 0.25);
+      --text:    #e8e4d9;
+      --muted:   #9c9585;
+      --radius:  14px;
     }
 
-    /* Description box with smaller text */
+    html, body {
+      height: 100%;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text);
+      background: #07070c;
+    }
+
+    body.space1-bg {
+      background-image: url("Images/windowsbliss.jpg");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    /* HEADER */
+    header {
+      background: linear-gradient(135deg, rgba(0,0,0,0.92) 0%, rgba(20,15,5,0.90) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 1.4rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    header h1 .accent { color: var(--gold); }
+
+    nav ul { list-style: none; display: flex; gap: 2.5rem; }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: var(--gold); }
+    nav a[aria-current="page"] { color: var(--gold); }
+
+    /* MAIN */
+    main {
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 2.5rem;
+    }
+
+    /* PAGE TITLE */
+    .page-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 0.4rem;
+    }
+
+    .page-title .accent { color: var(--gold); }
+
+    .page-subtitle {
+      font-size: 0.9rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      padding-bottom: 1.2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* FLEX LAYOUT */
+    .project-flex-container {
+      display: flex;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    /* DESCRIPTION CARD */
     .description-box {
-        flex: 1.5;
-        background-color: rgba(255, 255, 255, 0.05);
-        padding: 20px;
-        border: 1px solid #444;
-        border-radius: 8px;
+      flex: 1.6;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem 2.2rem;
+      backdrop-filter: blur(12px);
     }
 
     .description-box h2 {
-        margin-top: 0;
-        font-size: 1.4rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--gold);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.7rem;
+      margin-bottom: 1.2rem;
     }
 
-    .description-box p, .description-box li {
-        font-size: 0.9rem; /* Smaller text size */
-        line-height: 1.5;
+    .description-box > p {
+      font-size: 0.97rem;
+      color: #c0bbb0;
+      line-height: 1.8;
+      margin-bottom: 1.4rem;
     }
 
-    /* Image box to the right */
+    .description-box ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+    }
+
+    .description-box ul li {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: #c8c4bb;
+      padding-left: 1.2rem;
+      position: relative;
+    }
+
+    .description-box ul li::before {
+      content: '\25B8';
+      color: var(--gold);
+      position: absolute;
+      left: 0;
+      top: 0.15em;
+      font-size: 0.78rem;
+    }
+
+    .description-box ul li strong {
+      color: #fff;
+      font-weight: 500;
+    }
+
+    .description-box ul li code {
+      background: rgba(201, 168, 76, 0.12);
+      color: var(--gold-lt);
+      border: 1px solid rgba(201, 168, 76, 0.2);
+      border-radius: 4px;
+      padding: 0.1em 0.45em;
+      font-size: 0.88em;
+      font-family: 'Courier New', monospace;
+    }
+
+    /* IMAGE CARD */
     .visual-box {
-        flex: 1;
-        background-color: rgba(255, 255, 255, 0.05);
-        border: 1px solid #444;
-        border-radius: 8px;
-        padding: 10px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+      flex: 1;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.4rem;
+      backdrop-filter: blur(12px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      position: sticky;
+      top: 100px;
+    }
+
+    .visual-box h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--gold);
+      text-align: center;
+      width: 100%;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid var(--border);
     }
 
     .visual-box img {
-        max-width: 100%;
-        height: auto;
-        border-radius: 4px;
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      display: block;
     }
 
-    .visual-box span {
-        margin-top: 10px;
-        font-size: 0.8rem;
-        color: #888;
+    .visual-box figcaption {
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.5;
     }
- </style>
+
+    img { max-width: 100%; height: auto; }
+  </style>
 </head>
-
 <body class="space1-bg">
- <header>
-     <h1>Emmanuel Lara's Portfolio - Project 4</h1>
-  <nav>
-   <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="project1.html">Project 1</a></li>
-    <li><a href="project2.html">Project 2</a></li>
-   </ul>
-  </nav>
- </header>
 
-<main>
+  <header>
+    <h1>Emmanuel <span class="accent">Lara</span> &mdash; Portfolio</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="project1.html" aria-current="page">Project 1</a></li>
+        <li><a href="project2.html">Project 2</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1 class="page-title">Project <span class="accent">1</span></h1>
+    <p class="page-subtitle">Three-Tier Distributed Web-Based Application</p>
+
     <div class="project-flex-container">
-        <article class="description-box">
-            <h2><u>Project 4: Three-Tier Distributed Web-Based Application</u></h2>
-            <p>
-                I developed a distributed three-tier web application using Java servlets and JSP technology running on a Tomcat container to maintain a persistent MySQL database[cite: 4, 164].
-            </p>
-            
-            <ul>
-                <li><strong>Multi-Level Authentication:</strong> An HTML landing page facilitates user authentication via a servlet that validates credentials against a dedicated MySQL <code>credentialsDB</code>[cite: 14, 15, 17]. Users are redirected to specific interfaces for root, client, or accountant roles[cite: 20, 21, 24].</li>
-                <br />
-                <li><strong>Logic & SQL Interface:</strong> Second-tier servlets handle arbitrary SQL processing for root and client users[cite: 37, 43]. I implemented server-side business logic to automatically increment supplier status by 5 when shipment quantities reach 100 or more, specifically without using database triggers[cite: 39, 41, 65].</li>
-                <br />
-                <li><strong>Data & Reports:</strong> The backend MySQL DBMS enforces referential integrity for shipment records[cite: 10, 12, 49]. Accountant-level reports are generated by executing remote stored procedures via the <code>CallableStatement</code> interface[cite: 30, 47, 48].</li>
-                <br />
-                <li><strong>Secure Access:</strong> Database connections are managed through properties files to ensure distinct credential-based access for root, client, and accountant privilege levels[cite: 32, 33, 34].</li>
-            </ul>
-        </article>
 
-        <div class="visual-box">
-            <img src="/Images/Project4_Schematic.png" alt="Three-tier architecture diagram of Project 4">
-            <span>[Schematic Overview of Project Components [cite: 143]]</span>
-        </div>
+      <article class="description-box">
+        <h2>Project Overview</h2>
+        <p>
+          I developed a distributed three-tier web application using Java servlets and JSP technology running on a Tomcat container to maintain a persistent MySQL database.
+        </p>
+
+        <ul>
+          <li>
+            <strong>Multi-Level Authentication:</strong> An HTML landing page facilitates user authentication via a servlet that validates credentials against a dedicated MySQL <code>credentialsDB</code>. Users are redirected to specific interfaces for root, client, or accountant roles.
+          </li>
+          <li>
+            <strong>Logic &amp; SQL Interface:</strong> Second-tier servlets handle arbitrary SQL processing for root and client users. I implemented server-side business logic to automatically increment supplier status by 5 when shipment quantities reach 100 or more, specifically without using database triggers.
+          </li>
+          <li>
+            <strong>Data &amp; Reports:</strong> The backend MySQL DBMS enforces referential integrity for shipment records. Accountant-level reports are generated by executing remote stored procedures via the <code>CallableStatement</code> interface.
+          </li>
+          <li>
+            <strong>Secure Access:</strong> Database connections are managed through properties files to ensure distinct credential-based access for root, client, and accountant privilege levels.
+          </li>
+        </ul>
+      </article>
+
+      <div class="visual-box">
+        <h3>Application Screenshot</h3>
+        <figure>
+          <img src="Images/ClientCommand4.png" alt="Client command interface screenshot for Project 1">
+          <figcaption>Client command view &mdash; Three-tier application interface</figcaption>
+        </figure>
+      </div>
+
     </div>
-</main>
+  </main>
+
 </body>
 </html>
