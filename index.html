@@ -79,7 +79,7 @@
     /* LAYOUT */
     main.horizontal {
       display: grid;
-      grid-template-columns: 360px 1fr 420px;
+      grid-template-columns: 1fr 1fr 520px;
       gap: 2rem;
       align-items: start;
       width: 100%;
@@ -110,9 +110,8 @@
       margin-bottom: 1.6rem;
     }
 
-    /* WORK HISTORY */
-    .job-entry { margin-top: 1.8rem; }
-    .job-entry + .job-entry { border-top: 1px solid var(--border); padding-top: 1.8rem; }
+    /* INDIVIDUAL JOB CARDS — no top margin needed, standalone cards now */
+    .job-entry { margin-top: 0; }
 
     .job-entry h2 {
       font-family: 'Playfair Display', serif;
@@ -174,7 +173,11 @@
       border-radius: 0;
     }
 
-    /* BIO CENTER */
+    /* BIO CENTER — spans full middle column */
+    .bio-center {
+      grid-column: span 1;
+    }
+
     .bio-name {
       font-family: 'Playfair Display', serif;
       font-size: 2.1rem;
@@ -282,7 +285,7 @@
     }
 
     .image-box img {
-      width: 480px;
+      width: 560px;
       max-width: 100%;
       height: auto;
       border-radius: 10px;
@@ -307,23 +310,9 @@
 
   <main class="horizontal">
 
-    <!-- WORK HISTORY -->
-    <aside class="work-history">
+    <!-- HOSPICE — left -->
+    <aside>
       <h1>Work History</h1>
-
-      <div class="job-entry">
-        <div class="logo-wrap">
-          <img src="Images/halo-logo.jpg" alt="Halo Logo">
-        </div>
-        <h2>Software Consultant <span class="subtitle">at Halo</span></h2>
-        <p class="job-date">2026-03 &mdash; Current</p>
-        <ul>
-          <li>Act as a primary technical consultant for Spanish and English-speaking clients.</li>
-          <li>Assist in the configuration and maintenance of client environments.</li>
-          <li>Provide comprehensive technical support and troubleshooting for the HaloPSA platform.</li>
-        </ul>
-      </div>
-
       <div class="job-entry">
         <div class="logo-wrap">
           <img src="Images/hospice-logo.png" alt="TC Hospice Logo">
@@ -332,51 +321,4 @@
         <p class="job-date">2025-01 &mdash; 2026-03</p>
         <ul>
           <li>Maintained IT infrastructure and provided technical support for healthcare staff.</li>
-          <li>Ensured technical support complied with HIPAA regulations and privacy standards.</li>
-          <li>Managed mobile devices and remote workstations for hospice field staff.</li>
-          <li>Troubleshot hardware, software, and network connectivity issues.</li>
-        </ul>
-      </div>
-    </aside>
-
-    <!-- BIO -->
-    <aside class="bio-center">
-      <h1 class="bio-name">Emmanuel Lara</h1>
-      <span class="bio-title">Software Consultant</span>
-      <p class="bio-intro">I'm a passionate software professional with a strong foundation in customer service and IT principles. I excel at picking up new skills in foreign environments and finding efficient solutions to technical problems.</p>
-
-      <h2 class="edu-header">Education</h2>
-
-      <div class="edu-entry">
-        <h3>Bachelor of Science: Information Technology</h3>
-        <p>University of Central Florida (UCF) &middot; Orlando, FL &middot; 2023&ndash;Present</p>
-      </div>
-
-      <div class="edu-entry">
-        <h3>Associate of Arts</h3>
-        <p>Indian River State College &middot; Port St. Lucie, FL &middot; 2020&ndash;2023</p>
-      </div>
-
-      <div class="ucf-img-wrap">
-        <img src="Images/UCF-Campus.jpg" alt="UCF Campus">
-      </div>
-
-      <div class="linkedin-row">
-        <h3>Connect with me on LinkedIn</h3>
-        <a href="https://www.linkedin.com/in/emmanuel-lara-b2b38a278/" target="_blank">
-          <img class="linkedin-logo" src="Images/linkedin-logo.jpg" alt="LinkedIn Profile">
-        </a>
-      </div>
-    </aside>
-
-    <!-- HEADSHOT -->
-    <article>
-      <div class="image-box">
-        <img src="Images/headshot.jpg" alt="Headshot of Emmanuel Lara">
-      </div>
-    </article>
-
-  </main>
-
-</body>
-</html>
+          <li>Ensured technical support complied with HIPAA regulations and pr
