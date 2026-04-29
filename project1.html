@@ -256,10 +256,9 @@
 
         <ul>
           <li>
-            <strong>Multi-Level Authentication:</strong> An HTML landing page facilitates user authentication via a servlet that validates credentials against a dedicated MySQL <code>credentialsDB</code>. Users are redirected to specific interfaces for root, client, or accountant roles.
-          </li>
+            <strong>Multi-Level Authentication:</strong> An HTML landing page facilitates user authentication via a servlet that validates credentials against a dedicated MySQL <code>credentialsDB</code>.
           <li>
-            <strong>Logic &amp; SQL Interface:</strong> Second-tier servlets handle arbitrary SQL processing for root and client users. I implemented server-side business logic to automatically increment supplier status by 5 when shipment quantities reach 100 or more, specifically without using database triggers.
+            <strong>Logic &amp; SQL Interface:</strong> Second-tier servlets handle arbitrary SQL processing for root and client users.
           </li>
           <li>
             <strong>Secure Access:</strong> Database connections are managed through properties files to ensure distinct credential-based access for root, client, and accountant privilege levels.
