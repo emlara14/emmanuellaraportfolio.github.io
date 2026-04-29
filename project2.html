@@ -1,106 +1,271 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="utf-8">
- <meta name="viewport" content="width=device-width, initial-scale=1">
- <title>Emmanuel Lara's Portfolio - Project 2</title>
- <meta name="description" content="Technical details on Project 2: Feasibility Analysis of a Server Virtualization Project">
- <link rel="stylesheet" href="css/styles.css">
- <style>
-    /* Side-by-side container layout reversed */
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Emmanuel Lara's Portfolio | Project 2</title>
+  <meta name="description" content="Project 2: Feasibility Analysis of a Server Virtualization Project">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --gold:    #c9a84c;
+      --gold-lt: #e8c96d;
+      --card-bg: rgba(12, 12, 18, 0.82);
+      --border:  rgba(201, 168, 76, 0.25);
+      --text:    #e8e4d9;
+      --muted:   #9c9585;
+      --radius:  14px;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 17px;
+      line-height: 1.75;
+      color: var(--text);
+      background: #07070c;
+    }
+
+    body.space1-bg {
+      background-image: url("Images/windowsbliss.jpg");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    /* HEADER */
+    header {
+      background: linear-gradient(135deg, rgba(0,0,0,0.92) 0%, rgba(20,15,5,0.90) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 1.4rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    header h1 .accent { color: var(--gold); }
+
+    nav ul { list-style: none; display: flex; gap: 2.5rem; }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: var(--gold); }
+    nav a[aria-current="page"] { color: var(--gold); }
+
+    /* MAIN */
+    main {
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 2.5rem;
+    }
+
+    /* PAGE TITLE */
+    .page-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 0.4rem;
+    }
+
+    .page-title .accent { color: var(--gold); }
+
+    .page-subtitle {
+      font-size: 0.9rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      padding-bottom: 1.2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* FLEX LAYOUT — image LEFT, text RIGHT */
     .project-flex-container {
-        display: flex;
-        flex-direction: row; /* Default layout */
-        gap: 20px;
-        align-items: stretch;
-        margin-top: 20px;
+      display: flex;
+      gap: 2rem;
+      align-items: start;
     }
 
-    /* Image box on the LEFT */
+    /* IMAGE CARD — left, sticky */
     .visual-box {
-        flex: 1;
-        background-color: rgba(255, 255, 255, 0.05);
-        border: 1px solid #444;
-        border-radius: 8px;
-        padding: 10px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        order: 1; /* Ensures it stays on the left */
+      flex: 1;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.4rem;
+      backdrop-filter: blur(12px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      position: sticky;
+      top: 100px;
     }
 
-    /* Description box on the RIGHT */
-    .description-box {
-        flex: 1.5;
-        background-color: rgba(255, 255, 255, 0.05);
-        padding: 20px;
-        border: 1px solid #444;
-        border-radius: 8px;
-        order: 2; /* Ensures it stays on the right */
-    }
-
-    .description-box h2 {
-        margin-top: 0;
-        font-size: 1.4rem;
-    }
-
-    .description-box p, .description-box li {
-        font-size: 0.9rem;
-        line-height: 1.5;
+    .visual-box h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--gold);
+      text-align: center;
+      width: 100%;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid var(--border);
     }
 
     .visual-box img {
-        max-width: 100%;
-        height: auto;
-        border-radius: 4px;
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      display: block;
     }
 
-    .visual-box span {
-        margin-top: 10px;
-        font-size: 0.8rem;
-        color: #888;
+    .visual-box figcaption {
+      font-size: 0.82rem;
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.5;
     }
- </style>
+
+    /* DESCRIPTION CARD — right */
+    .description-box {
+      flex: 1.6;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2.2rem 2.5rem;
+      backdrop-filter: blur(12px);
+    }
+
+    .description-box h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: var(--gold);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.7rem;
+      margin-bottom: 1.3rem;
+    }
+
+    .description-box > p {
+      font-size: 1.05rem;
+      color: #c0bbb0;
+      line-height: 1.85;
+      margin-bottom: 1.6rem;
+    }
+
+    .description-box ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1.3rem;
+    }
+
+    .description-box ul li {
+      font-size: 1.02rem;
+      line-height: 1.8;
+      color: #cbc7be;
+      padding-left: 1.4rem;
+      position: relative;
+    }
+
+    .description-box ul li::before {
+      content: '\25B8';
+      color: var(--gold);
+      position: absolute;
+      left: 0;
+      top: 0.18em;
+      font-size: 0.82rem;
+    }
+
+    .description-box ul li strong {
+      color: #fff;
+      font-weight: 500;
+    }
+
+    img { max-width: 100%; height: auto; }
+  </style>
 </head>
-
 <body class="space1-bg">
- <header>
-     <h1>Emmanuel Lara's Portfolio - Project 2</h1>
-  <nav>
-   <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="project1.html">Project 1</a></li>
-    <li><a href="project2.html" aria-current="page">Project 2</a></li>
-    <li><a href="project4.html">Project 4</a></li>
-   </ul>
-  </nav>
- </header>
 
-<main>
+  <header>
+    <h1>Emmanuel <span class="accent">Lara</span> &mdash; Portfolio</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="project1.html">Project 1</a></li>
+        <li><a href="project2.html" aria-current="page">Project 2</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1 class="page-title">Project <span class="accent">2</span></h1>
+    <p class="page-subtitle">Feasibility Analysis of Server Virtualization</p>
+
     <div class="project-flex-container">
-        <div class="visual-box">
-            <img src="/Images/Project2_Analysis.png" alt="Cost-Benefit Analysis Spreadsheet Overview">
-            <span>[Financial Feasibility Spreadsheets]</span>
-        </div>
 
-        <article class="description-box">
-            <h2><u>Project 2: Feasibility Analysis of Server Virtualization</u></h2>
-            <p>
-                In this project, I acted as a System Administrator for a fictitious organization, HostPenny, to conduct a comprehensive financial cost-benefit analysis for a large-scale server virtualization initiative[cite: 773, 786, 799].
-            </p>
-            
-            <ul>
-                <li><strong>Current State Assessment:</strong> I analyzed the operational costs of 20,000 physical servers divided into four functional groups, calculating energy consumption in kWH based on average CPU loads and power rates[cite: 804, 806, 829].</li>
-                <br />
-                <li><strong>Consolidation Strategy:</strong> I proposed a 10.2:1 physical consolidation ratio, reducing the hardware footprint to 1,960 high-performance Sun X9-2L servers capable of supporting 3,830 virtual machines[cite: 910, 912, 913].</li>
-                <br />
-                <li><strong>Financial Projections:</strong> I developed a 5-year financial projection including hard costs (server purchase, maintenance, and software licenses) and soft costs (administrative effort and backup labor)[cite: 788, 971, 1219, 1222].</li>
-                <br />
-                <li><strong>Dynamic Modeling:</strong> I constructed a series of interconnected spreadsheets using shared variables to ensure the feasibility study remained flexible and free of hard-coded numerical values[cite: 1256, 1258, 1260].</li>
-            </ul>
-        </article>
+      <!-- IMAGE — left -->
+      <div class="visual-box">
+        <h3>Financial Analysis</h3>
+        <figure>
+          <img src="Images/Project2_Analysis.png" alt="Cost-Benefit Analysis Spreadsheet Overview">
+          <figcaption>Financial Feasibility Spreadsheets</figcaption>
+        </figure>
+      </div>
+
+      <!-- DESCRIPTION — right -->
+      <article class="description-box">
+        <h2>Project Overview</h2>
+        <p>
+          In this project, I acted as a System Administrator for a fictitious organization, HostPenny, to conduct a comprehensive financial cost-benefit analysis for a large-scale server virtualization initiative.
+        </p>
+
+        <ul>
+          <li>
+            <strong>Current State Assessment:</strong> I analyzed the operational costs of 20,000 physical servers divided into four functional groups, calculating energy consumption in kWh based on average CPU loads and power rates.
+          </li>
+          <li>
+            <strong>Consolidation Strategy:</strong> I proposed a 10.2:1 physical consolidation ratio, reducing the hardware footprint to 1,960 high-performance Sun X9-2L servers capable of supporting 3,830 virtual machines.
+          </li>
+          <li>
+            <strong>Financial Projections:</strong> I developed a 5-year financial projection including hard costs (server purchase, maintenance, and software licenses) and soft costs (administrative effort and backup labor).
+          </li>
+          <li>
+            <strong>Dynamic Modeling:</strong> I constructed a series of interconnected spreadsheets using shared variables to ensure the feasibility study remained flexible and free of hard-coded numerical values.
+          </li>
+        </ul>
+      </article>
+
     </div>
-</main>
+  </main>
+
 </body>
 </html>
