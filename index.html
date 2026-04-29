@@ -76,10 +76,10 @@
 
     nav a:hover, nav a[aria-current="page"] { color: var(--gold); }
 
-    /* LAYOUT */
+    /* PAGE LAYOUT: 3 columns — work history | bio | headshot */
     main.horizontal {
       display: grid;
-      grid-template-columns: 1fr 1fr 520px;
+      grid-template-columns: 1fr auto 420px;
       gap: 2rem;
       align-items: start;
       width: 100%;
@@ -89,63 +89,77 @@
       min-height: calc(100vh - 72px);
     }
 
-    /* CARDS */
-    aside {
+    /* SHARED CARD STYLE */
+    .card {
       background: var(--card-bg);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 2rem 1.8rem;
+      padding: 1.8rem;
       backdrop-filter: blur(12px);
       color: var(--text);
     }
 
-    aside h1 {
+    .card-title {
       font-family: 'Playfair Display', serif;
-      font-size: 1.55rem;
+      font-size: 1.45rem;
       font-weight: 700;
       color: var(--gold);
       letter-spacing: 0.03em;
       border-bottom: 1px solid var(--border);
-      padding-bottom: 0.75rem;
-      margin-bottom: 1.6rem;
+      padding-bottom: 0.7rem;
+      margin-bottom: 1.4rem;
     }
 
-    /* INDIVIDUAL JOB CARDS — no top margin needed, standalone cards now */
-    .job-entry { margin-top: 0; }
+    /* WORK HISTORY — two jobs side by side inside one card */
+    .jobs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .job-entry {
+      padding-right: 1.2rem;
+      border-right: 1px solid var(--border);
+    }
+
+    .job-entry:last-child {
+      padding-right: 0;
+      border-right: none;
+    }
 
     .job-entry h2 {
       font-family: 'Playfair Display', serif;
-      font-size: 1.15rem;
+      font-size: 1rem;
       font-weight: 700;
       color: #fff;
       line-height: 1.35;
-      margin-bottom: 0.2rem;
+      margin-bottom: 0.15rem;
     }
 
     .subtitle {
       font-family: 'DM Sans', sans-serif;
-      font-size: 0.92rem;
+      font-size: 0.82rem;
       font-weight: 400;
       color: var(--gold-lt);
     }
 
     .job-date {
-      font-size: 0.84rem;
+      font-size: 0.75rem;
       color: var(--muted);
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      margin-bottom: 0.8rem;
+      margin-bottom: 0.7rem;
     }
 
     .job-entry ul { list-style: none; padding: 0; }
 
     .job-entry ul li {
-      font-size: 0.97rem;
-      line-height: 1.75;
+      font-size: 0.82rem;
+      line-height: 1.65;
       color: #c8c4bb;
-      padding-left: 1.1rem;
+      padding-left: 1rem;
       position: relative;
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.45rem;
     }
 
     .job-entry ul li::before {
@@ -153,39 +167,33 @@
       color: var(--gold);
       position: absolute;
       left: 0;
-      font-size: 0.78rem;
-      top: 0.18em;
+      font-size: 0.7rem;
+      top: 0.2em;
     }
 
     /* LOGO WRAPPERS */
     .logo-wrap {
       background: #fff;
       border-radius: 8px;
-      padding: 8px 12px;
+      padding: 6px 10px;
       display: inline-block;
-      margin-bottom: 1rem;
+      margin-bottom: 0.8rem;
     }
 
     .logo-wrap img {
-      width: 100px;
+      width: 85px;
       height: auto;
       display: block;
       border-radius: 0;
     }
 
-    /* BIO CENTER — spans full middle column */
-    .bio-center {
-      grid-column: span 1;
-    }
-
+    /* BIO CARD */
     .bio-name {
       font-family: 'Playfair Display', serif;
       font-size: 2.1rem;
       font-weight: 900;
       color: #fff;
       margin-bottom: 0.15rem;
-      border-bottom: none !important;
-      padding-bottom: 0 !important;
     }
 
     .bio-title {
@@ -199,37 +207,37 @@
     }
 
     .bio-intro {
-      font-size: 1.05rem;
+      font-size: 1rem;
       color: #c0bbb0;
       line-height: 1.85;
-      margin-bottom: 1.8rem;
+      margin-bottom: 1.6rem;
     }
 
     .edu-header {
       font-family: 'Playfair Display', serif;
-      font-size: 1.45rem;
+      font-size: 1.35rem;
       color: var(--gold);
       border-bottom: 1px solid var(--border);
-      padding-bottom: 0.6rem;
-      margin-bottom: 1.2rem;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
     }
 
-    .edu-entry { margin-bottom: 1.2rem; }
+    .edu-entry { margin-bottom: 1rem; }
 
     .edu-entry h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 1.08rem;
+      font-size: 1rem;
       font-weight: 700;
       color: #fff;
     }
 
     .edu-entry p {
-      font-size: 0.92rem;
+      font-size: 0.88rem;
       color: var(--muted);
     }
 
     .ucf-img-wrap {
-      margin: 1.5rem 0;
+      margin: 1.2rem 0;
       border-radius: var(--radius);
       overflow: hidden;
       border: 1px solid var(--border);
@@ -237,7 +245,7 @@
 
     .ucf-img-wrap img {
       width: 100%;
-      height: 200px;
+      height: 180px;
       object-fit: cover;
       border-radius: 0;
       display: block;
@@ -247,7 +255,7 @@
       display: flex;
       align-items: center;
       gap: 1rem;
-      margin-top: 1.2rem;
+      margin-top: 1rem;
       background: rgba(201,168,76,0.08);
       border: 1px solid var(--border);
       border-radius: 10px;
@@ -255,7 +263,7 @@
     }
 
     .linkedin-row h3 {
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 500;
       color: var(--text);
       flex: 1;
@@ -269,12 +277,6 @@
     }
 
     /* HEADSHOT */
-    article {
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-    }
-
     .image-box {
       background: var(--card-bg);
       border: 1px solid var(--border);
@@ -285,8 +287,8 @@
     }
 
     .image-box img {
-      width: 560px;
-      max-width: 100%;
+      width: 100%;
+      max-width: 420px;
       height: auto;
       border-radius: 10px;
       display: block;
@@ -310,81 +312,75 @@
 
   <main class="horizontal">
 
-    <!-- HOSPICE — left -->
-    <aside>
-      <h1>Work History</h1>
-      <div class="job-entry">
-        <div class="logo-wrap">
-          <img src="Images/hospice-logo.png" alt="TC Hospice Logo">
+    <!-- COL 1: WORK HISTORY — both jobs in one card -->
+    <aside class="card">
+      <h2 class="card-title">Work History</h2>
+      <div class="jobs-grid">
+
+        <!-- Treasure Coast — left -->
+        <div class="job-entry">
+          <div class="logo-wrap">
+            <img src="Images/hospice-logo.png" alt="TC Hospice Logo">
+          </div>
+          <h2>Informatics Intern <span class="subtitle">at Treasure Coast Hospice</span></h2>
+          <p class="job-date">2025-01 &mdash; 2026-03</p>
+          <ul>
+            <li>Ensured technical support complied with HIPAA regulations and privacy standards.</li>
+            <li>Managed mobile devices and remote workstations for hospice field staff.</li>
+            <li>Troubleshot hardware, software, and network connectivity issues.</li>
+          </ul>
         </div>
-        <h2>Informatics Intern <span class="subtitle">at Treasure Coast Hospice</span></h2>
-        <p class="job-date">2025-01 &mdash; 2026-03</p>
-        <ul>
-          <li>Maintained IT infrastructure and provided technical support for healthcare staff.</li>
-          <li>Ensured technical support complied with HIPAA regulations and privacy standards.</li>
-          <li>Managed mobile devices and remote workstations for hospice field staff.</li>
-          <li>Troubleshot hardware, software, and network connectivity issues.</li>
-        </ul>
+
+        <!-- Halo — right -->
+        <div class="job-entry">
+          <div class="logo-wrap">
+            <img src="Images/halo-logo.jpg" alt="Halo Logo">
+          </div>
+          <h2>Software Consultant <span class="subtitle">at Halo</span></h2>
+          <p class="job-date">2026-03 &mdash; Current</p>
+          <ul>
+            <li>Act as a primary technical consultant for Spanish and English-speaking clients.</li>
+            <li>Assist in the configuration and maintenance of client environments.</li>
+            <li>Provide comprehensive technical support and troubleshooting for the HaloPSA platform.</li>
+          </ul>
+        </div>
+
       </div>
     </aside>
 
-    <!-- HALO — center-left -->
-    <aside>
-      <h1>Work History</h1>
-      <div class="job-entry">
-        <div class="logo-wrap">
-          <img src="Images/halo-logo.jpg" alt="Halo Logo">
-        </div>
-        <h2>Software Consultant <span class="subtitle">at Halo</span></h2>
-        <p class="job-date">2026-03 &mdash; Current</p>
-        <ul>
-          <li>Act as a primary technical consultant for Spanish and English-speaking clients.</li>
-          <li>Assist in the configuration and maintenance of client environments.</li>
-          <li>Provide comprehensive technical support and troubleshooting for the HaloPSA platform.</li>
-        </ul>
+    <!-- COL 2: BIO -->
+    <aside class="card">
+      <h1 class="bio-name">Emmanuel Lara</h1>
+      <span class="bio-title">Software Consultant</span>
+      <p class="bio-intro">I'm a passionate software professional with a strong foundation in customer service and IT principles. I excel at picking up new skills in foreign environments and finding efficient solutions to technical problems.</p>
+
+      <h2 class="edu-header">Education</h2>
+
+      <div class="edu-entry">
+        <h3>Bachelor of Science: Information Technology</h3>
+        <p>University of Central Florida (UCF) &middot; Orlando, FL &middot; 2023&ndash;Present</p>
+      </div>
+
+      <div class="edu-entry">
+        <h3>Associate of Arts</h3>
+        <p>Indian River State College &middot; Port St. Lucie, FL &middot; 2020&ndash;2023</p>
+      </div>
+
+      <div class="ucf-img-wrap">
+        <img src="Images/UCF-Campus.jpg" alt="UCF Campus">
+      </div>
+
+      <div class="linkedin-row">
+        <h3>Connect with me on LinkedIn</h3>
+        <a href="https://www.linkedin.com/in/emmanuel-lara-b2b38a278/" target="_blank">
+          <img class="linkedin-logo" src="Images/linkedin-logo.jpg" alt="LinkedIn Profile">
+        </a>
       </div>
     </aside>
 
-    <!-- RIGHT COLUMN: Bio + Headshot stacked -->
-    <div style="display: flex; flex-direction: column; gap: 2rem;">
-
-      <!-- BIO -->
-      <aside class="bio-center">
-        <h1 class="bio-name">Emmanuel Lara</h1>
-        <span class="bio-title">Software Consultant</span>
-        <p class="bio-intro">I'm a passionate software professional with a strong foundation in customer service and IT principles. I excel at picking up new skills in foreign environments and finding efficient solutions to technical problems.</p>
-
-        <h2 class="edu-header">Education</h2>
-
-        <div class="edu-entry">
-          <h3>Bachelor of Science: Information Technology</h3>
-          <p>University of Central Florida (UCF) &middot; Orlando, FL &middot; 2023&ndash;Present</p>
-        </div>
-
-        <div class="edu-entry">
-          <h3>Associate of Arts</h3>
-          <p>Indian River State College &middot; Port St. Lucie, FL &middot; 2020&ndash;2023</p>
-        </div>
-
-        <div class="ucf-img-wrap">
-          <img src="Images/UCF-Campus.jpg" alt="UCF Campus">
-        </div>
-
-        <div class="linkedin-row">
-          <h3>Connect with me on LinkedIn</h3>
-          <a href="https://www.linkedin.com/in/emmanuel-lara-b2b38a278/" target="_blank">
-            <img class="linkedin-logo" src="Images/linkedin-logo.jpg" alt="LinkedIn Profile">
-          </a>
-        </div>
-      </aside>
-
-      <!-- HEADSHOT -->
-      <article>
-        <div class="image-box">
-          <img src="Images/headshot.jpg" alt="Headshot of Emmanuel Lara">
-        </div>
-      </article>
-
+    <!-- COL 3: HEADSHOT -->
+    <div class="image-box">
+      <img src="Images/headshot.jpg" alt="Headshot of Emmanuel Lara">
     </div>
 
   </main>
