@@ -1,88 +1,381 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="utf-8" />
- <meta name="viewport" content="width=device-width, initial-scale=1" />
- <title>Emmanuel Lara's Portfolio | Home</title>
- <link rel="stylesheet" href="css/styles.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Emmanuel Lara's Portfolio | Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --gold:    #c9a84c;
+      --gold-lt: #e8c96d;
+      --card-bg: rgba(12, 12, 18, 0.82);
+      --border:  rgba(201, 168, 76, 0.25);
+      --text:    #e8e4d9;
+      --muted:   #9c9585;
+      --radius:  14px;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text);
+      background: #07070c;
+    }
+
+    body.melbourne-bg {
+      background-image: url("Images/melbourne.jpg");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    /* HEADER */
+    header {
+      background: linear-gradient(135deg, rgba(0,0,0,0.92) 0%, rgba(20,15,5,0.90) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 1.4rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.55rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      color: #fff;
+    }
+
+    header h1 .accent { color: var(--gold); }
+
+    nav ul { list-style: none; display: flex; gap: 2.5rem; }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    nav a:hover, nav a[aria-current="page"] { color: var(--gold); }
+
+    /* LAYOUT */
+    main.horizontal {
+      display: grid;
+      grid-template-columns: 360px 1fr 420px;
+      gap: 2rem;
+      align-items: start;
+      width: 100%;
+      max-width: 1760px;
+      margin: 0 auto;
+      padding: 2.5rem;
+      min-height: calc(100vh - 72px);
+    }
+
+    /* CARDS */
+    aside {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem 1.8rem;
+      backdrop-filter: blur(12px);
+      color: var(--text);
+    }
+
+    aside h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.03em;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.75rem;
+      margin-bottom: 1.6rem;
+    }
+
+    /* WORK HISTORY */
+    .job-entry { margin-top: 1.8rem; }
+    .job-entry + .job-entry { border-top: 1px solid var(--border); padding-top: 1.8rem; }
+
+    .job-entry h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.35;
+      margin-bottom: 0.2rem;
+    }
+
+    .subtitle {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: var(--gold-lt);
+    }
+
+    .job-date {
+      font-size: 0.82rem;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+    }
+
+    .job-entry ul { list-style: none; padding: 0; }
+
+    .job-entry ul li {
+      font-size: 0.93rem;
+      line-height: 1.65;
+      color: #c8c4bb;
+      padding-left: 1.1rem;
+      position: relative;
+      margin-bottom: 0.55rem;
+    }
+
+    .job-entry ul li::before {
+      content: '\25B8';
+      color: var(--gold);
+      position: absolute;
+      left: 0;
+      font-size: 0.75rem;
+      top: 0.15em;
+    }
+
+    /* LOGO WRAPPERS */
+    .logo-wrap {
+      background: #fff;
+      border-radius: 8px;
+      padding: 8px 12px;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+
+    .logo-wrap img {
+      width: 100px;
+      height: auto;
+      display: block;
+      border-radius: 0;
+    }
+
+    /* BIO CENTER */
+    .bio-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 0.15rem;
+      border-bottom: none !important;
+      padding-bottom: 0 !important;
+    }
+
+    .bio-title {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      color: var(--gold-lt);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .bio-intro {
+      font-size: 1rem;
+      color: #c0bbb0;
+      line-height: 1.8;
+      margin-bottom: 1.8rem;
+    }
+
+    .edu-header {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--gold);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.6rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .edu-entry { margin-bottom: 1.2rem; }
+
+    .edu-entry h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .edu-entry p {
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .ucf-img-wrap {
+      margin: 1.5rem 0;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .ucf-img-wrap img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 0;
+      display: block;
+    }
+
+    .linkedin-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1.2rem;
+      background: rgba(201,168,76,0.08);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.9rem 1.2rem;
+    }
+
+    .linkedin-row h3 {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text);
+      flex: 1;
+    }
+
+    .linkedin-logo {
+      width: 44px !important;
+      height: 44px !important;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    /* HEADSHOT */
+    article {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .image-box {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.2rem;
+      display: inline-block;
+      backdrop-filter: blur(12px);
+    }
+
+    .image-box img {
+      width: 380px;
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      display: block;
+    }
+
+    img { max-width: 100%; height: auto; }
+  </style>
 </head>
-
 <body class="melbourne-bg">
- <header>
- <h1>Emmanuel Lara's Portfolio - Home Page</h1>
-  <nav>
-   <ul>
-    <li><a href="index.html" aria-current="page">Home</a></li>
-    <li><a href="project1.html">Project 1</a></li>
-    <li><a href="project2.html">Project 2</a></li>
-   </ul>
-  </nav>
- </header>
 
-<main class="horizontal">
-    
+  <header>
+    <h1>Emmanuel <span class="accent">Lara</span> &mdash; Portfolio</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="project1.html">Project 1</a></li>
+        <li><a href="project2.html">Project 2</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="horizontal">
+
+    <!-- WORK HISTORY -->
     <aside class="work-history">
-        <h1><u>Work History</u></h1>
+      <h1>Work History</h1>
 
-        <div class="job-entry" style="margin-top: 2rem;">
-            <img src="Images/halo-logo.png" alt="Halo Logo" style="width: 110px; height: auto; display: block; margin-bottom: 1rem; border-radius: 0;">
-            <h2>Software Consultant <span class="subtitle">at Halo</span></h2>
-            <p>2026-03 - Current</p>
-            <ul>
-                <li>Act as a primary technical consultant for Spanish and English-speaking clients.</li>
-                <br />
-                <li>Assist in the configuration and maintenance of client environments.</li>
-                <br />
-                <li>Provide comprehensive technical support and troubleshooting for the HaloPSA platform.</li>
-            </ul>
+      <div class="job-entry">
+        <div class="logo-wrap">
+          <img src="Images/halo-logo.jpg" alt="Halo Logo">
         </div>
+        <h2>Software Consultant <span class="subtitle">at Halo</span></h2>
+        <p class="job-date">2026-03 &mdash; Current</p>
+        <ul>
+          <li>Act as a primary technical consultant for Spanish and English-speaking clients.</li>
+          <li>Assist in the configuration and maintenance of client environments.</li>
+          <li>Provide comprehensive technical support and troubleshooting for the HaloPSA platform.</li>
+        </ul>
+      </div>
 
-        <div class="job-entry" style="margin-top: 2rem;">
-            <div class="logo-background-box">
-                <img src="Images/hospice-logo.png" alt="TC Hospice Logo" style="width: 110px; height: auto; display: block; margin-bottom: 0; border-radius: 0;">
-            </div>
-            <h2>Informatics Intern <span class="subtitle">at Treasure Coast Hospice</span></h2>
-            <p>2025-01 - 2026-03</p>
-            <ul>
-                <li>Maintained IT infrastructure and provided technical support for healthcare staff.</li>
-                <br />
-                <li>Ensured technical support complied with HIPAA regulations and privacy standards.</li>
-                <br />
-                <li>Managed mobile devices and remote workstations for hospice field staff.</li>
-                <br />
-                <li>Troubleshoot hardware, software, and network connectivity issues.</li>
-            </ul>
+      <div class="job-entry">
+        <div class="logo-wrap">
+          <img src="Images/hospice-logo.png" alt="TC Hospice Logo">
         </div>
+        <h2>Informatics Intern <span class="subtitle">at Treasure Coast Hospice</span></h2>
+        <p class="job-date">2025-01 &mdash; 2026-03</p>
+        <ul>
+          <li>Maintained IT infrastructure and provided technical support for healthcare staff.</li>
+          <li>Ensured technical support complied with HIPAA regulations and privacy standards.</li>
+          <li>Managed mobile devices and remote workstations for hospice field staff.</li>
+          <li>Troubleshot hardware, software, and network connectivity issues.</li>
+        </ul>
+      </div>
     </aside>
 
+    <!-- BIO -->
     <aside class="bio-center">
-        <h1>Emmanuel Lara <u><span class="subtitle">Software Consultant</span></u></h1>
-        <p>I'm a passionate software professional with a strong foundation in customer service and IT principles. I excel at picking up new skills in foreign environments and finding efficient solutions to technical problems.</p>
-        <br />
-        <h1><u>Education</u></h1>
+      <h1 class="bio-name">Emmanuel Lara</h1>
+      <span class="bio-title">Software Consultant</span>
+      <p class="bio-intro">I'm a passionate software professional with a strong foundation in customer service and IT principles. I excel at picking up new skills in foreign environments and finding efficient solutions to technical problems.</p>
+
+      <h2 class="edu-header">Education</h2>
+
+      <div class="edu-entry">
         <h3>Bachelor of Science: Information Technology</h3>
-        <p>University of Central Florida (UCF) - Orlando, Florida &nbsp;&nbsp;&nbsp; 2023-06 - Current</p>
-        <br />
+        <p>University of Central Florida (UCF) &middot; Orlando, FL &middot; 2023&ndash;Present</p>
+      </div>
+
+      <div class="edu-entry">
         <h3>Associate of Arts</h3>
-        <p>Indian River State College - Orlando, Florida &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2020-06 - 2023-05 </p>
-        <br />
-        <img src="Images/UCF-Campus.jpg" alt="UCF Campus"/>
-        <br />
-        <br />
-        <div class="align">
-            <h3>Connect with me on LinkedIn!</h3> 
-            <a href="https://www.linkedin.com/in/emmanuel-lara-b2b38a278/" target="_blank">
-                <img class="linkedin-logo" src="Images/linkedin-logo.jpg" alt="LinkedIn Profile" />
-            </a>
-        </div>
+        <p>Indian River State College &middot; Port St. Lucie, FL &middot; 2020&ndash;2023</p>
+      </div>
+
+      <div class="ucf-img-wrap">
+        <img src="Images/UCF-Campus.jpg" alt="UCF Campus">
+      </div>
+
+      <div class="linkedin-row">
+        <h3>Connect with me on LinkedIn</h3>
+        <a href="https://www.linkedin.com/in/emmanuel-lara-b2b38a278/" target="_blank">
+          <img class="linkedin-logo" src="Images/linkedin-logo.jpg" alt="LinkedIn Profile">
+        </a>
+      </div>
     </aside>
 
+    <!-- HEADSHOT -->
     <article>
-        <div class="image-box">
-            <img src="Images/headshot.jpg" alt="Headshot of Emmanuel Lara" width="550">
-        </div>
+      <div class="image-box">
+        <img src="Images/headshot.jpg" alt="Headshot of Emmanuel Lara">
+      </div>
     </article>
 
-</main>
+  </main>
+
 </body>
 </html>
