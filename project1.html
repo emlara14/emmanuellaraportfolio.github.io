@@ -15,7 +15,7 @@
     :root {
       --gold:    #c9a84c;
       --gold-lt: #e8c96d;
-      --card-bg: rgba(12, 12, 18, 0.82);
+      --card-bg: rgba(8, 8, 12, 0.88);
       --border:  rgba(201, 168, 76, 0.25);
       --text:    #e8e4d9;
       --muted:   #9c9585;
@@ -25,14 +25,15 @@
     html, body {
       height: 100%;
       font-family: 'DM Sans', sans-serif;
-      font-size: 16px;
-      line-height: 1.7;
+      font-size: 19px;
+      line-height: 1.8;
       color: var(--text);
       background: #07070c;
     }
 
     body.space1-bg {
-      background-image: url("Images/windowsbliss.jpg");
+      background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+                        url("Images/windowsbliss.jpg");
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -40,7 +41,7 @@
 
     /* HEADER */
     header {
-      background: linear-gradient(135deg, rgba(0,0,0,0.92) 0%, rgba(20,15,5,0.90) 100%);
+      background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(15,10,3,0.93) 100%);
       border-bottom: 1px solid var(--border);
       padding: 1.4rem 3rem;
       display: flex;
@@ -86,7 +87,7 @@
     /* PAGE TITLE */
     .page-title {
       font-family: 'Playfair Display', serif;
-      font-size: 2rem;
+      font-size: 2.2rem;
       font-weight: 900;
       color: #fff;
       margin-bottom: 0.4rem;
@@ -95,7 +96,7 @@
     .page-title .accent { color: var(--gold); }
 
     .page-subtitle {
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       color: var(--muted);
       letter-spacing: 0.08em;
       text-transform: uppercase;
@@ -107,35 +108,35 @@
     /* FLEX LAYOUT */
     .project-flex-container {
       display: flex;
-      gap: 2rem;
+      gap: 2.2rem;
       align-items: start;
     }
 
     /* DESCRIPTION CARD */
     .description-box {
-      flex: 1.6;
+      flex: 1.5;
       background: var(--card-bg);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 2rem 2.2rem;
+      padding: 2.4rem 2.8rem;
       backdrop-filter: blur(12px);
     }
 
     .description-box h2 {
       font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
+      font-size: 1.7rem;
       font-weight: 700;
       color: var(--gold);
       border-bottom: 1px solid var(--border);
-      padding-bottom: 0.7rem;
-      margin-bottom: 1.2rem;
+      padding-bottom: 0.75rem;
+      margin-bottom: 1.4rem;
     }
 
     .description-box > p {
-      font-size: 0.97rem;
-      color: #c0bbb0;
-      line-height: 1.8;
-      margin-bottom: 1.4rem;
+      font-size: 1.12rem;
+      color: #c8c4bb;
+      line-height: 1.9;
+      margin-bottom: 1.8rem;
     }
 
     .description-box ul {
@@ -143,14 +144,14 @@
       padding: 0;
       display: flex;
       flex-direction: column;
-      gap: 1.1rem;
+      gap: 1.5rem;
     }
 
     .description-box ul li {
-      font-size: 0.95rem;
-      line-height: 1.7;
-      color: #c8c4bb;
-      padding-left: 1.2rem;
+      font-size: 1.08rem;
+      line-height: 1.85;
+      color: #cbc7be;
+      padding-left: 1.5rem;
       position: relative;
     }
 
@@ -159,8 +160,8 @@
       color: var(--gold);
       position: absolute;
       left: 0;
-      top: 0.15em;
-      font-size: 0.78rem;
+      top: 0.2em;
+      font-size: 0.85rem;
     }
 
     .description-box ul li strong {
@@ -180,11 +181,11 @@
 
     /* IMAGE CARD */
     .visual-box {
-      flex: 1;
+      flex: 1.1;
       background: var(--card-bg);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 1.4rem;
+      padding: 1.6rem;
       backdrop-filter: blur(12px);
       display: flex;
       flex-direction: column;
@@ -196,17 +197,21 @@
 
     .visual-box h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 1rem;
+      font-size: 1.1rem;
       font-weight: 700;
       color: var(--gold);
       text-align: center;
       width: 100%;
-      padding-bottom: 0.6rem;
+      padding-bottom: 0.7rem;
       border-bottom: 1px solid var(--border);
     }
 
+    .visual-box figure {
+      width: 100%;
+    }
+
     .visual-box img {
-      max-width: 100%;
+      width: 100%;
       height: auto;
       border-radius: 8px;
       border: 1px solid var(--border);
@@ -214,9 +219,10 @@
     }
 
     .visual-box figcaption {
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       color: var(--muted);
       text-align: center;
+      margin-top: 0.7rem;
       line-height: 1.5;
     }
 
